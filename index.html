@@ -1,162 +1,906 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#17231f">
-<meta name="description" content="Carta digital de El bajón de la casa, San Martín 810, Castro.">
-<title>El bajón de la casa | Carta digital</title>
-<style>
-:root{--ink:#17231f;--muted:#6b746f;--cream:#f7f4ed;--paper:#fffdf8;--accent:#b87942;--line:#e8e1d5;--green:#314c3e}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-button,input,textarea,select{font:inherit}button{cursor:pointer}.topbar{background:var(--ink);color:#fff;padding:11px 16px;text-align:center;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
-.hero{background:var(--ink);color:#fff;padding:34px 20px 38px;text-align:center;position:relative;overflow:hidden}.hero:before,.hero:after{content:"";position:absolute;border:1px solid #ffffff1c;border-radius:50%;width:260px;height:260px;top:-170px}.hero:before{left:-100px}.hero:after{right:-110px;top:auto;bottom:-210px}
-.logoMark{width:62px;height:62px;border:1px solid #cda77b;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:#e2c29d;font-family:Georgia,serif;font-size:27px;overflow:hidden}.logoMark img{width:100%;height:100%;object-fit:cover}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.24em;color:#d6b38b;margin:0 0 9px}.hero h1{font-family:Georgia,"Times New Roman",serif;font-weight:500;font-size:clamp(32px,8vw,48px);line-height:1.05;margin:0 auto 12px;max-width:620px}.tagline{color:#e1e2dc;margin:0 auto 17px;font-size:14px}.address{font-size:12px;color:#c6cec8}
-.wrap{max-width:1040px;margin:auto;padding:0 16px 48px}.intro{padding:26px 0 16px;text-align:center}.intro h2{font-family:Georgia,serif;font-weight:500;font-size:25px;margin:0 0 8px}.intro p{color:var(--muted);font-size:13px;margin:0}
-.searchbar{display:flex;gap:9px;margin:14px 0 18px}.searchbar input{width:100%;border:1px solid var(--line);background:var(--paper);border-radius:13px;padding:13px 15px;outline-color:var(--accent)}
-.categories{display:flex;gap:8px;overflow-x:auto;padding:2px 0 15px;scrollbar-width:thin}.catbtn{white-space:nowrap;border:1px solid var(--line);background:var(--paper);color:var(--ink);padding:9px 14px;border-radius:999px;font-size:12px}.catbtn.active{background:var(--green);border-color:var(--green);color:#fff}
-.section-title{font-family:Georgia,serif;font-size:24px;font-weight:500;margin:15px 0}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.product{background:var(--paper);border:1px solid var(--line);border-radius:16px;overflow:hidden;min-width:0}.photo{width:100%;aspect-ratio:4/3;background:#e8e2d7;display:flex;align-items:center;justify-content:center;color:#81796d;overflow:hidden}.photo img{width:100%;height:100%;object-fit:cover;display:block}.photo .placeholder{text-align:center;padding:12px;font-size:12px}.photo .placeholder b{display:block;font-family:Georgia,serif;font-size:28px;font-weight:400;margin-bottom:5px;color:#a18d75}.product-body{padding:12px}.product-top{display:flex;gap:8px;justify-content:space-between;align-items:flex-start}.product h3{font-size:15px;line-height:1.25;margin:0;font-weight:650}.price{white-space:nowrap;font-size:14px;font-weight:750;color:var(--green)}.desc{font-size:12px;color:var(--muted);line-height:1.45;margin:8px 0 0}.unavailable{display:inline-block;font-size:10px;color:#8a4b32;margin-top:8px;text-transform:uppercase;letter-spacing:.08em}
-.empty{text-align:center;padding:32px 15px;color:var(--muted);background:var(--paper);border-radius:14px;border:1px dashed var(--line)}
-.footer{background:#eae5db;padding:24px 16px;text-align:center;color:var(--muted);font-size:12px}.footer strong{color:var(--ink);display:block;font-family:Georgia,serif;font-size:18px;font-weight:500;margin-bottom:5px}
-.admin-fab{position:fixed;right:14px;bottom:14px;border:0;border-radius:999px;background:var(--accent);color:#fff;padding:12px 16px;box-shadow:0 5px 18px #0002;font-weight:650;z-index:10;font-size:12px}
-dialog{border:0;border-radius:18px;width:min(680px,calc(100% - 24px));max-height:90vh;padding:0;background:var(--paper);color:var(--ink);box-shadow:0 20px 70px #0004}dialog::backdrop{background:#101713a8}.modal-head{padding:18px 20px;background:var(--ink);color:white;display:flex;justify-content:space-between;align-items:center;gap:12px}.modal-head h2{font:500 24px Georgia,serif;margin:0}.close{border:1px solid #ffffff50;background:transparent;color:white;border-radius:9px;padding:6px 10px}.modal-content{padding:18px 20px;overflow:auto;max-height:calc(90vh - 65px)}.notice{font-size:12px;line-height:1.5;background:#f2eadc;padding:12px;border-radius:10px;margin-bottom:16px}.field{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}.field label{font-size:12px;font-weight:700}.field input,.field textarea,.field select{width:100%;padding:10px 11px;border:1px solid var(--line);border-radius:9px;background:white;color:var(--ink)}.field textarea{min-height:68px;resize:vertical}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.admin-actions{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}.action{border:0;border-radius:9px;background:var(--green);color:#fff;padding:10px 13px;font-size:12px;font-weight:700}.action.secondary{background:#e9e4d9;color:var(--ink)}.action.danger{background:#8d4436}.product-editor{border:1px solid var(--line);border-radius:12px;padding:12px;margin:12px 0}.product-editor h3{font-size:14px;margin:0 0 10px}.product-editor .row{display:flex;gap:8px;align-items:center}.small{font-size:11px;color:var(--muted);line-height:1.45}.status{font-size:12px;color:var(--green);min-height:18px}
-@media(min-width:650px){.hero{padding:48px 20px 52px}.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.product-body{padding:15px}.product h3{font-size:16px}.wrap{padding-left:22px;padding-right:22px}}
-@media(min-width:900px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0f1720">
+  <meta name="description" content="Carta digital de El Bajón de la Casa, San Martín 810, Castro.">
+  <title>El Bajón de la Casa | Carta digital</title>
+  <style>
+    :root {
+      --bg: #0f1720;
+      --bg-2: #121b24;
+      --panel: #1a2430;
+      --panel-2: #212d3b;
+      --card: #1d2a38;
+      --ink: #edf2f7;
+      --muted: #9aa7b5;
+      --line: #2f3d4f;
+      --accent: #f5b35b;
+      --accent-strong: #ff8a3d;
+      --success: #7dd3a6;
+      --danger: #ff6b6b;
+      --shadow: rgba(0, 0, 0, 0.42);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top, rgba(245,179,91,0.12), transparent 30%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    img { max-width: 100%; display: block; }
+    button, input, textarea, select { font: inherit; }
+    button { cursor: pointer; }
+
+    .topbar {
+      background: rgba(18, 27, 36, 0.92);
+      color: var(--ink);
+      padding: 12px 18px;
+      text-align: center;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-size: 11px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(22,31,39,0.96), rgba(18,27,36,0.96));
+      color: white;
+      text-align: center;
+      padding: 32px 18px 40px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero::before, .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.1);
+      pointer-events: none;
+    }
+
+    .hero::before {
+      width: 280px; height: 280px;
+      right: -90px; top: -120px;
+    }
+
+    .hero::after {
+      width: 220px; height: 220px;
+      left: -70px; bottom: -110px;
+    }
+
+    .logoMark {
+      width: 72px; height: 72px;
+      margin: 0 auto 14px;
+      border-radius: 50%;
+      background: rgba(245,179,91,0.12);
+      border: 1px solid rgba(245,179,91,0.8);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px; font-family: Georgia, serif; color: var(--accent);
+      box-shadow: 0 0 0 6px rgba(245,179,91,0.08);
+      overflow: hidden;
+    }
+
+    .logoMark img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Georgia, serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      line-height: 1.08;
+    }
+
+    .tagline {
+      margin: 10px 0 0;
+      font-size: 1.04rem;
+      color: #f5c88a;
+    }
+
+    .address {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: .96rem;
+    }
+
+    .wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 16px 64px;
+    }
+
+    .intro {
+      text-align: center;
+      padding: 26px 0 10px;
+    }
+
+    .intro h2 {
+      margin: 0 0 8px;
+      font-family: Georgia, serif;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 600;
+    }
+
+    .intro p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .searchbar {
+      margin: 22px 0 18px;
+    }
+
+    .searchbar input {
+      width: 100%;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      color: var(--ink);
+      padding: 15px 16px;
+      outline: none;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+    }
+
+    .searchbar input:focus {
+      border-color: rgba(245,179,91,0.75);
+      box-shadow: 0 0 0 3px rgba(245,179,91,0.12);
+    }
+
+    .categories {
+      display: flex;
+      gap: 9px;
+      overflow-x: auto;
+      padding: 6px 0 18px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent) transparent;
+    }
+
+    .catbtn {
+      white-space: nowrap;
+      background: var(--panel);
+      color: var(--ink);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-weight: 600;
+      transition: all .15s ease;
+    }
+
+    .catbtn.active {
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      border-color: transparent;
+      color: #1a120b;
+      box-shadow: 0 10px 28px rgba(245,179,91,0.22);
+    }
+
+    .section-title {
+      margin: 12px 0 16px;
+      font-family: Georgia, serif;
+      font-size: clamp(1.7rem, 4vw, 2.2rem);
+      font-weight: 600;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .product {
+      background: linear-gradient(180deg, rgba(27,35,45,0.9), rgba(20,28,35,0.96));
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 14px 28px var(--shadow);
+    }
+
+    .photo {
+      position: relative;
+      background: linear-gradient(135deg, #2d3948, #171f2a);
+      aspect-ratio: 1.35 / 1;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .photo img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+
+    .placeholder {
+      display: grid; place-items: center;
+      width: 100%; height: 100%;
+      color: #d8dfe8;
+      background: linear-gradient(135deg, #27313e, #1a202b);
+      font-size: .9rem;
+      text-align: center;
+      padding: 14px;
+    }
+
+    .placeholder b {
+      display: block;
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+      color: var(--accent);
+    }
+
+    .product-body {
+      padding: 14px 14px 16px;
+    }
+
+    .product-top {
+      display: flex; justify-content: space-between; align-items: start; gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .product h3 {
+      margin: 0;
+      font-size: 1.03rem;
+      color: var(--ink);
+      line-height: 1.25;
+    }
+
+    .price {
+      font-weight: 800;
+      color: var(--accent);
+      white-space: nowrap;
+      font-size: .9rem;
+    }
+
+    .desc {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 0.9rem;
+    }
+
+    .empty {
+      grid-column: 1 / -1;
+      background: rgba(27,35,45,0.9);
+      border: 1px dashed var(--line);
+      border-radius: 16px;
+      text-align: center;
+      color: var(--muted);
+      padding: 32px 16px;
+    }
+
+    .footer {
+      background: rgba(10, 14, 18, 0.95);
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      padding: 22px 16px 36px;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    .footer strong {
+      display: block;
+      margin-bottom: 6px;
+      font-family: Georgia, serif;
+      color: var(--ink);
+      font-size: 1.15rem;
+    }
+
+    .admin-fab {
+      position: fixed;
+      right: 16px; bottom: 16px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      color: #17120d;
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 16px;
+      font-weight: 800;
+      box-shadow: 0 16px 36px rgba(245,179,91,0.22);
+      z-index: 20;
+    }
+
+    dialog {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      width: min(720px, calc(100% - 24px));
+      max-height: 90vh;
+      background: #121b24;
+      color: var(--ink);
+      padding: 0;
+      box-shadow: 0 28px 80px rgba(0,0,0,0.52);
+      overflow: auto;
+    }
+
+    dialog::backdrop {
+      background: rgba(0,0,0,0.7);
+    }
+
+    .modal-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(21,29,37,0.9);
+    }
+
+    .modal-head h2 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    .close, .action, .action.secondary, .action.danger {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--panel);
+      color: var(--ink);
+      padding: 10px 12px;
+      font-weight: 700;
+    }
+
+    .action {
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      border: none;
+      color: #1b1109;
+    }
+
+    .action.secondary {
+      background: var(--panel-2);
+      color: var(--ink);
+      border: 1px solid var(--line);
+    }
+
+    .action.danger {
+      background: rgba(255,107,107,0.15);
+      color: #ffb0b0;
+      border-color: rgba(255,107,107,0.25);
+    }
+
+    .modal-content {
+      padding: 18px;
+    }
+
+    .notice {
+      background: rgba(245,179,91,0.08);
+      border: 1px solid rgba(245,179,91,0.25);
+      color: #f2d4a8;
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-bottom: 16px;
+      line-height: 1.45;
+    }
+
+    .formgrid {
+      display: grid; gap: 12px;
+      grid-template-columns: 1fr;
+      margin-bottom: 12px;
+    }
+
+    .field {
+      display: flex; flex-direction: column; gap: 8px;
+    }
+
+    label {
+      font-size: 0.87rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    input, textarea, select {
+      background: var(--panel);
+      color: var(--ink);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 11px 12px;
+      outline: none;
+    }
+
+    textarea {
+      min-height: 92px; resize: vertical;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: rgba(245,179,91,0.75);
+      box-shadow: 0 0 0 3px rgba(245,179,91,0.12);
+    }
+
+    .admin-actions {
+      display: flex; flex-wrap: wrap; gap: 10px;
+      margin: 12px 0 18px;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 0.8rem;
+      line-height: 1.5;
+    }
+
+    .product-editor {
+      background: rgba(26,36,48,0.75);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px;
+      margin: 12px 0;
+    }
+
+    .row {
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .row h3 {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .status {
+      margin-top: 16px;
+      min-height: 22px;
+      color: #ffd7a3;
+      font-size: 0.88rem;
+    }
+
+    @media (min-width: 650px) {
+      .wrap { padding-left: 20px; padding-right: 20px; }
+      .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .formgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .hero { padding-top: 46px; padding-bottom: 52px; }
+    }
+
+    @media (min-width: 980px) {
+      .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    }
+  </style>
 </head>
 <body>
-<div class="topbar">Carta digital · Hecha para disfrutar</div>
-<header class="hero">
-  <div class="logoMark" id="logoMark">B</div>
-  <p class="eyebrow">Bienvenidos a</p>
-  <h1 id="restaurantName">El bajón de la casa</h1>
-  <p class="tagline" id="tagline">Algo rico para ese bajón</p>
-  <div class="address" id="address">San Martín 810, Castro, Chiloé</div>
-</header>
-<main class="wrap">
-  <div class="intro"><h2>Nuestra carta</h2><p>Encuentra tu próximo favorito.</p></div>
-  <div class="searchbar"><input id="search" type="search" placeholder="Buscar un plato..." aria-label="Buscar un plato"></div>
-  <nav class="categories" id="categories" aria-label="Categorías del menú"></nav>
-  <h2 class="section-title" id="sectionTitle">Destacados</h2>
-  <div class="grid" id="products"></div>
-</main>
-<footer class="footer"><strong id="footerName">El bajón de la casa</strong><span id="footerAddress">San Martín 810, Castro, Chiloé</span><div style="margin-top:10px">Carta digital · Precios en pesos chilenos</div></footer>
-<button class="admin-fab" id="openAdmin" type="button">⚙ Editar carta</button>
-<dialog id="adminDialog">
-  <div class="modal-head"><h2>Editar carta digital</h2><button class="close" id="closeAdmin" type="button">Cerrar</button></div>
-  <div class="modal-content">
-    <div class="notice"><b>Importante:</b> los cambios se guardan primero en este navegador para que puedas preparar y revisar la carta. Para que todos los clientes vean los cambios en GitHub Pages, pulsa <b>Descargar menu-data.json</b> y luego reemplaza ese archivo en tu repositorio de GitHub. Esta plantilla no envía cambios automáticamente a GitHub.</div>
-    <div class="formgrid">
-      <div class="field"><label for="editName">Nombre del local</label><input id="editName"></div>
-      <div class="field"><label for="editTagline">Frase corta</label><input id="editTagline"></div>
+  <div class="topbar">Carta digital · Hecha para disfrutar</div>
+
+  <header class="hero">
+    <div class="logoMark" id="logoMark">B</div>
+    <p class="eyebrow">Bienvenidos a</p>
+    <h1 id="restaurantName">El Bajón de la Casa</h1>
+    <p class="tagline" id="tagline">Algo rico para ese bajón</p>
+    <div class="address" id="address">San Martín 810, Castro, Chiloé</div>
+  </header>
+
+  <main class="wrap">
+    <div class="intro">
+      <h2>Nuestra carta</h2>
+      <p>Encuentra tu próximo favorito.</p>
     </div>
-    <div class="formgrid">
-      <div class="field"><label for="editAddress">Dirección</label><input id="editAddress"></div>
-      <div class="field"><label for="editPhone">Teléfono (opcional)</label><input id="editPhone" placeholder="+56 9 ..."></div>
+
+    <div class="searchbar">
+      <input id="search" type="search" placeholder="Buscar un plato..." aria-label="Buscar un plato">
     </div>
-    <div class="field"><label for="editLogo">URL del logotipo (opcional)</label><input id="editLogo" placeholder="https://... o ruta de una imagen"></div>
-    <div class="field"><label for="editCategories">Categorías (una por línea)</label><textarea id="editCategories"></textarea></div>
-    <div class="admin-actions"><button class="action" id="addProduct" type="button">+ Añadir plato</button><button class="action secondary" id="exportData" type="button">Descargar menu-data.json</button><button class="action secondary" id="importData" type="button">Importar JSON</button><input type="file" id="importFile" accept=".json,application/json" hidden></div>
-    <p class="small">Fotos: selecciona una imagen en cada plato. Se optimiza y se incluye en el archivo JSON exportado. Para que el archivo no sea demasiado grande, usa fotos claras y recortadas; la herramienta las reduce antes de guardarlas.</p>
-    <div id="productEditors"></div>
-    <div class="admin-actions"><button class="action" id="saveLocal" type="button">Guardar cambios en este navegador</button><button class="action secondary" id="resetData" type="button">Restablecer carta inicial</button></div>
-    <div class="status" id="status" role="status"></div>
-    <p class="small">Consejo: guarda una copia del archivo JSON descargado. Puedes usarlo como respaldo o importarlo para continuar editando.</p>
-  </div>
-</dialog>
-<script>
-const defaultMenu = {
-  restaurant:{name:"El bajón de la casa",tagline:"Algo rico para ese bajón",address:"San Martín 810, Castro, Chiloé",phone:"",logo:"",currency:"CLP"},
-  categories:["Destacados","Sandwiches","Completos","Hamburguesas","Churrascos","Pizzas","Papas fritas","Jugos","Bebidas","Otros"],
-  products:[{id:"demo-1",name:"Producto de ejemplo",category:"Destacados",description:"Edita este texto y reemplázalo por un plato real del restaurante.",price:0,image:"",available:true}],
-  settings:{showPrices:true,showDescriptions:true}
-};
-let menu = structuredClone(defaultMenu);
-let activeCategory = "Destacados";
-const $ = id => document.getElementById(id);
-const money = n => "$" + Number(n||0).toLocaleString("es-CL");
-function safeText(v){return String(v??"")}
-function normalize(m){return {restaurant:{...defaultMenu.restaurant,...(m.restaurant||{})},categories:Array.isArray(m.categories)&&m.categories.length?m.categories:defaultMenu.categories,products:Array.isArray(m.products)?m.products:[],settings:{...defaultMenu.settings,...(m.settings||{})}}}
-async function loadMenu(){
-  try { const r=await fetch("./menu-data.json",{cache:"no-store"}); if(r.ok) menu=normalize(await r.json()); } catch(e) {}
-  try { const saved=localStorage.getItem("bajon-menu-draft"); if(saved) menu=normalize(JSON.parse(saved)); } catch(e) {}
-  render();
-}
-function render(){
-  const r=menu.restaurant;
-  $("restaurantName").textContent=r.name;$("footerName").textContent=r.name;
-  $("tagline").textContent=r.tagline||"";$("address").textContent=r.address||"";$("footerAddress").textContent=r.address||"";
-  $("logoMark").innerHTML=r.logo?`<img src="${escapeAttr(r.logo)}" alt="Logotipo de ${escapeAttr(r.name)}">`:"B";
-  if(!menu.categories.includes(activeCategory)) activeCategory=menu.categories[0]||"Todos";
-  const cats=$("categories");cats.innerHTML="";
-  menu.categories.forEach(cat=>{const b=document.createElement("button");b.className="catbtn"+(cat===activeCategory?" active":"");b.textContent=cat;b.type="button";b.onclick=()=>{activeCategory=cat;render()};cats.appendChild(b)});
-  $("sectionTitle").textContent=activeCategory;
-  const q=$("search").value.trim().toLocaleLowerCase("es-CL");
-  const products=menu.products.filter(p=>p.available!==false&&(activeCategory==="Todos"||p.category===activeCategory)&&(!q||(p.name+" "+p.description+" "+p.category).toLocaleLowerCase("es-CL").includes(q)));
-  const grid=$("products");grid.innerHTML="";
-  if(!products.length){grid.innerHTML='<div class="empty" style="grid-column:1/-1">No hay platos en esta categoría todavía. Usa “Editar carta” para agregar productos.</div>';return}
-  products.forEach(p=>{
-    const card=document.createElement("article");card.className="product";
-    const photo=document.createElement("div");photo.className="photo";
-    if(p.image){const img=document.createElement("img");img.src=p.image;img.alt=p.name;img.loading="lazy";photo.appendChild(img)}
-    else {photo.innerHTML='<div class="placeholder"><b>✳</b>Fotografía del plato</div>'}
-    const body=document.createElement("div");body.className="product-body";
-    const top=document.createElement("div");top.className="product-top";
-    const name=document.createElement("h3");name.textContent=p.name||"Nuevo plato";top.appendChild(name);
-    if(menu.settings.showPrices && Number(p.price)>0){const price=document.createElement("span");price.className="price";price.textContent=money(p.price);top.appendChild(price)}
-    body.appendChild(top);
-    if(menu.settings.showDescriptions&&p.description){const desc=document.createElement("p");desc.className="desc";desc.textContent=p.description;body.appendChild(desc)}
-    card.append(photo,body);grid.appendChild(card);
-  });
-}
-function escapeAttr(s){return String(s??"").replaceAll("&","&amp;").replaceAll('"',"&quot;").replaceAll("<","&lt;").replaceAll(">","&gt;")}
-function fillAdmin(){
-  $("editName").value=menu.restaurant.name||"";$("editTagline").value=menu.restaurant.tagline||"";
-  $("editAddress").value=menu.restaurant.address||"";$("editPhone").value=menu.restaurant.phone||"";
-  $("editLogo").value=menu.restaurant.logo||"";$("editCategories").value=menu.categories.join("\n");
-  const wrap=$("productEditors");wrap.innerHTML="";
-  menu.products.forEach((p,i)=>{
-    const box=document.createElement("section");box.className="product-editor";
-    box.innerHTML=`<div class="row" style="justify-content:space-between"><h3>Plato ${i+1}</h3><button class="action danger" type="button" data-remove="${i}">Eliminar</button></div>
-    <div class="formgrid"><div class="field"><label>Nombre del plato</label><input data-field="name" data-i="${i}" value="${escapeAttr(p.name)}"></div>
-    <div class="field"><label>Precio en pesos (solo número)</label><input data-field="price" data-i="${i}" type="number" min="0" step="50" value="${Number(p.price)||0}"></div></div>
-    <div class="field"><label>Categoría</label><select data-field="category" data-i="${i}">${menu.categories.map(c=>`<option ${c===p.category?"selected":""}>${escapeAttr(c)}</option>`).join("")}</select></div>
-    <div class="field"><label>Descripción</label><textarea data-field="description" data-i="${i}">${escapeAttr(p.description||"")}</textarea></div>
-    <div class="field"><label>Fotografía del plato (opcional)</label><input type="file" accept="image/*" data-image="${i}"><div class="small">${p.image?"Fotografía cargada. Si eliges otra, la reemplazará.":"Aún no hay foto."}</div></div>
-    <label style="font-size:12px"><input type="checkbox" data-field="available" data-i="${i}" ${p.available!==false?"checked":""}> Mostrar este plato en la carta</label>`;
-    wrap.appendChild(box);
-  });
-  wrap.querySelectorAll("[data-remove]").forEach(b=>b.onclick=()=>{menu.products.splice(Number(b.dataset.remove),1);fillAdmin()});
-  wrap.querySelectorAll("[data-field]").forEach(el=>el.addEventListener("change",()=>{
-    const p=menu.products[Number(el.dataset.i)],f=el.dataset.field;
-    p[f]=f==="price"?Number(el.value||0):f==="available"?el.checked:el.value;
-  }));
-  wrap.querySelectorAll("[data-image]").forEach(el=>el.addEventListener("change",async()=>{
-    if(!el.files[0])return;
-    try{menu.products[Number(el.dataset.image)].image=await compressImage(el.files[0]);el.nextElementSibling.textContent="Fotografía cargada y optimizada. Pulsa Guardar y luego Descargar JSON."}
-    catch(e){setStatus("No pude procesar esa imagen. Prueba con JPG o PNG.");}
-  }));
-}
-function compressImage(file){return new Promise((resolve,reject)=>{const reader=new FileReader();reader.onerror=reject;reader.onload=()=>{const img=new Image();img.onerror=reject;img.onload=()=>{const max=900,scale=Math.min(1,max/Math.max(img.width,img.height)),canvas=document.createElement("canvas");canvas.width=Math.round(img.width*scale);canvas.height=Math.round(img.height*scale);canvas.getContext("2d").drawImage(img,0,0,canvas.width,canvas.height);resolve(canvas.toDataURL("image/jpeg",.78))};img.src=reader.result};reader.readAsDataURL(file)})}
-function readAdmin(){
-  menu.restaurant.name=$("editName").value.trim()||"El bajón de la casa";
-  menu.restaurant.tagline=$("editTagline").value.trim();menu.restaurant.address=$("editAddress").value.trim();
-  menu.restaurant.phone=$("editPhone").value.trim();menu.restaurant.logo=$("editLogo").value.trim();
-  const cats=$("editCategories").value.split("\n").map(s=>s.trim()).filter(Boolean);
-  if(cats.length)menu.categories=cats;
-  menu.products.forEach(p=>{if(!menu.categories.includes(p.category))p.category=menu.categories[0]});
-}
-function setStatus(s){$("status").textContent=s}
-$("search").addEventListener("input",render);
-$("openAdmin").onclick=()=>{fillAdmin();$("adminDialog").showModal()};
-$("closeAdmin").onclick=()=>{$("adminDialog").close()};
-$("addProduct").onclick=()=>{readAdmin();menu.products.push({id:"plato-"+Date.now(),name:"Nuevo plato",category:menu.categories[0]||"Otros",description:"",price:0,image:"",available:true});fillAdmin()};
-$("saveLocal").onclick=()=>{readAdmin();try{localStorage.setItem("bajon-menu-draft",JSON.stringify(menu));render();setStatus("Cambios guardados en este navegador. Recuerda descargar el JSON para actualizar la web pública.")}catch(e){setStatus("No se pudo guardar. Descarga el JSON para conservar los cambios.")}};
-$("exportData").onclick=()=>{readAdmin();const blob=new Blob([JSON.stringify(menu,null,2)],{type:"application/json;charset=utf-8"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="menu-data.json";a.click();URL.revokeObjectURL(a.href);setStatus("Archivo menu-data.json descargado. Súbelo a GitHub reemplazando el archivo anterior.")};
-$("importData").onclick=()=>$("importFile").click();
-$("importFile").onchange=async e=>{const file=e.target.files[0];if(!file)return;try{menu=normalize(JSON.parse(await file.text()));fillAdmin();render();setStatus("Carta importada. Pulsa Guardar o descarga el JSON al terminar.")}catch(err){setStatus("No se pudo leer el JSON. Comprueba que sea un archivo menu-data.json válido.")}e.target.value=""};
-$("resetData").onclick=()=>{if(confirm("¿Restablecer la carta inicial? Los cambios locales se perderán.")){menu=structuredClone(defaultMenu);localStorage.removeItem("bajon-menu-draft");fillAdmin();render();setStatus("Carta inicial restaurada.")}};
-loadMenu();
-</script>
+
+    <nav class="categories" id="categories" aria-label="Categorías del menú"></nav>
+
+    <h2 class="section-title" id="sectionTitle">Destacados</h2>
+    <div class="grid" id="products"></div>
+  </main>
+
+  <footer class="footer">
+    <strong id="footerName">El Bajón de la Casa</strong>
+    <span id="footerAddress">San Martín 810, Castro, Chiloé</span>
+    <div style="margin-top:12px">Carta digital · Precios en pesos chilenos</div>
+  </footer>
+
+  <button class="admin-fab" id="openAdmin" type="button">⚙ Editar carta</button>
+
+  <dialog id="adminDialog">
+    <div class="modal-head">
+      <h2>Editar carta digital</h2>
+      <button class="close" id="closeAdmin" type="button">Cerrar</button>
+    </div>
+
+    <div class="modal-content">
+      <div class="notice">
+        <b>Importante:</b> los cambios se guardan primero en este navegador para preparar la carta. Cuando quieras, puedes exportar el archivo JSON y publicarlo en GitHub Pages.
+      </div>
+
+      <div class="formgrid">
+        <div class="field">
+          <label for="editName">Nombre del local</label>
+          <input id="editName">
+        </div>
+        <div class="field">
+          <label for="editTagline">Frase corta</label>
+          <input id="editTagline">
+        </div>
+      </div>
+
+      <div class="formgrid">
+        <div class="field">
+          <label for="editAddress">Dirección</label>
+          <input id="editAddress">
+        </div>
+        <div class="field">
+          <label for="editPhone">Teléfono</label>
+          <input id="editPhone" placeholder="+56 9 ...">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="editLogo">URL del logotipo</label>
+        <input id="editLogo" placeholder="https://...">
+      </div>
+
+      <div class="field" style="margin-top:12px">
+        <label for="editCategories">Categorías (una por línea)</label>
+        <textarea id="editCategories"></textarea>
+      </div>
+
+      <div class="admin-actions">
+        <button class="action" id="addProduct" type="button">+ Añadir plato</button>
+        <button class="action secondary" id="exportData" type="button">Descargar JSON</button>
+        <button class="action secondary" id="importData" type="button">Importar JSON</button>
+        <input id="importFile" type="file" accept="application/json" hidden>
+      </div>
+
+      <p class="small">Fotos: puedes añadirlas por plato desde el editor. Si la imagen es grande, se comprime para que la carta se vea fluida.</p>
+      <div id="productEditors"></div>
+
+      <div class="admin-actions">
+        <button class="action" id="saveLocal" type="button">Guardar en este navegador</button>
+        <button class="action secondary" id="resetData" type="button">Restablecer</button>
+      </div>
+
+      <div class="status" id="status" role="status"></div>
+      <p class="small">Consejo: Guarda una copia del JSON descargado para no perder tus cambios.</p>
+    </div>
+  </dialog>
+
+  <script>
+    const defaultMenu = {
+      restaurant: {
+        name: "El Bajón de la Casa",
+        tagline: "Algo rico para ese bajón",
+        address: "San Martín 810, Castro, Chiloé",
+        phone: "",
+        logo: "",
+        currency: "CLP"
+      },
+      categories: [
+        "Destacados",
+        "Sandwiches",
+        "Completos",
+        "Hamburguesas",
+        "Churrascos",
+        "Pizzas",
+        "Papas Fritas",
+        "Jugos",
+        "Bebidas",
+        "Otros"
+      ],
+      products: [
+        {
+          id: "demo-1",
+          name: "Producto de ejemplo",
+          category: "Destacados",
+          description: "Edita este texto y reemplázalo por un plato real del restaurante.",
+          price: 0,
+          image: "",
+          available: true
+        }
+      ],
+      settings: { showPrices: true, showDescriptions: true }
+    };
+
+    let menu = structuredClone(defaultMenu);
+    let activeCategory = "Destacados";
+
+    const $ = (id) => document.getElementById(id);
+    const money = (n) => "$" + Number(n || 0).toLocaleString("es-CL");
+
+    function normalize(m) {
+      return {
+        restaurant: { ...defaultMenu.restaurant, ...(m.restaurant || {}) },
+        categories: Array.isArray(m.categories) && m.categories.length ? m.categories : defaultMenu.categories,
+        products: Array.isArray(m.products) ? m.products : [],
+        settings: { ...defaultMenu.settings, ...(m.settings || {}) }
+      };
+    }
+
+    function escapeAttr(s) {
+      return String(s ?? "").replaceAll("&", "&amp;").replaceAll('"', "&quot;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
+    }
+
+    async function loadMenu() {
+      try {
+        const r = await fetch("./menu-data.json", { cache: "no-store" });
+        if (r.ok) menu = normalize(await r.json());
+      } catch (e) {
+        console.warn("No se pudo cargar menu-data.json", e);
+      }
+
+      try {
+        const saved = localStorage.getItem("bajon-menu-draft");
+        if (saved) menu = normalize(JSON.parse(saved));
+      } catch (e) {
+        console.warn("No se pudo cargar el borrador local", e);
+      }
+
+      render();
+    }
+
+    function render() {
+      const r = menu.restaurant;
+      $("restaurantName").textContent = r.name;
+      $("footerName").textContent = r.name;
+      $("tagline").textContent = r.tagline || "";
+      $("address").textContent = r.address || "";
+      $("footerAddress").textContent = r.address || "";
+      $("logoMark").innerHTML = r.logo ? `<img src="${escapeAttr(r.logo)}" alt="Logotipo de ${escapeAttr(r.name)}">` : "B";
+
+      if (!menu.categories.includes(activeCategory)) activeCategory = menu.categories[0] || "Destacados";
+
+      const cats = $("categories");
+      cats.innerHTML = "";
+      menu.categories.forEach((cat) => {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.className = "catbtn" + (cat === activeCategory ? " active" : "");
+        b.textContent = cat;
+        b.onclick = () => {
+          activeCategory = cat;
+          render();
+        };
+        cats.appendChild(b);
+      });
+
+      $("sectionTitle").textContent = activeCategory;
+
+      const q = $("search").value.trim().toLocaleLowerCase("es-CL");
+      const products = menu.products.filter((p) => {
+        const matchesCategory = activeCategory === "Todos" || p.category === activeCategory;
+        const text = `${p.name || ""} ${p.description || ""} ${p.category || ""}`.toLocaleLowerCase("es-CL");
+        const matchesSearch = !q || text.includes(q);
+        return p.available !== false && matchesCategory && matchesSearch;
+      });
+
+      const grid = $("products");
+      grid.innerHTML = "";
+
+      if (!products.length) {
+        grid.innerHTML = '<div class="empty">No hay platos en esta categoría todavía. Usa “Editar carta” para agregar productos.</div>';
+        return;
+      }
+
+      products.forEach((p) => {
+        const card = document.createElement("article");
+        card.className = "product";
+
+        const photo = document.createElement("div");
+        photo.className = "photo";
+        if (p.image) {
+          const img = document.createElement("img");
+          img.src = p.image;
+          img.alt = p.name;
+          img.loading = "lazy";
+          photo.appendChild(img);
+        } else {
+          photo.innerHTML = '<div class="placeholder"><div><b>✦</b><div>Fotografía del plato</div></div></div>';
+        }
+
+        const body = document.createElement("div");
+        body.className = "product-body";
+
+        const top = document.createElement("div");
+        top.className = "product-top";
+
+        const name = document.createElement("h3");
+        name.textContent = p.name || "Nuevo plato";
+
+        const price = document.createElement("span");
+        price.className = "price";
+        price.textContent = menu.settings.showPrices && Number(p.price) > 0 ? money(p.price) : "";
+
+        top.append(name, price);
+        body.appendChild(top);
+
+        if (menu.settings.showDescriptions && p.description) {
+          const desc = document.createElement("p");
+          desc.className = "desc";
+          desc.textContent = p.description;
+          body.appendChild(desc);
+        }
+
+        card.append(photo, body);
+        grid.appendChild(card);
+      });
+    }
+
+    function fillAdmin() {
+      $("editName").value = menu.restaurant.name || "";
+      $("editTagline").value = menu.restaurant.tagline || "";
+      $("editAddress").value = menu.restaurant.address || "";
+      $("editPhone").value = menu.restaurant.phone || "";
+      $("editLogo").value = menu.restaurant.logo || "";
+      $("editCategories").value = menu.categories.join("\n");
+
+      const wrap = $("productEditors");
+      wrap.innerHTML = "";
+
+      menu.products.forEach((p, i) => {
+        const box = document.createElement("section");
+        box.className = "product-editor";
+        box.innerHTML = `
+          <div class="row">
+            <h3>Plato ${i + 1}</h3>
+            <button class="action danger" type="button" data-remove="${i}">Eliminar</button>
+          </div>
+          <div class="formgrid">
+            <div class="field"><label>Nombre</label><input data-field="name" data-i="${i}" value="${escapeAttr(p.name)}"></div>
+            <div class="field"><label>Precio</label><input data-field="price" data-i="${i}" type="number" min="0" step="50" value="${Number(p.price) || 0}"></div>
+          </div>
+          <div class="field" style="margin-top:12px">
+            <label>Categoría</label>
+            <select data-field="category" data-i="${i}">
+              ${menu.categories.map((c) => `<option ${c === p.category ? "selected" : ""}>${escapeAttr(c)}</option>`).join("")}
+            </select>
+          </div>
+          <div class="field" style="margin-top:12px"><label>Descripción</label><textarea data-field="description" data-i="${i}">${escapeAttr(p.description || "")}</textarea></div>
+          <div class="field" style="margin-top:12px"><label>Foto del plato</label><input type="file" accept="image/*" data-image="${i}"><div class="small">${p.image ? "Imagen cargada. Si subes otra, la reemplaza." : "No hay imagen cargada."}</div></div>
+          <label style="display:flex;align-items:center;gap:8px;margin-top:12px"><input type="checkbox" data-field="available" data-i="${i}" ${p.available !== false ? "checked" : ""}> Mostrar este plato</label>
+        `;
+        wrap.appendChild(box);
+      });
+
+      wrap.querySelectorAll("[data-remove]").forEach((btn) => {
+        btn.onclick = () => {
+          const index = Number(btn.dataset.remove);
+          menu.products.splice(index, 1);
+          fillAdmin();
+        };
+      });
+
+      wrap.querySelectorAll("[data-field]").forEach((el) => {
+        el.addEventListener("change", () => {
+          const p = menu.products[Number(el.dataset.i)];
+          const f = el.dataset.field;
+          if (!p) return;
+
+          p[f] = f === "price" ? Number(el.value || 0) : f === "available" ? el.checked : el.value;
+        });
+      });
+
+      wrap.querySelectorAll("[data-image]").forEach((el) => {
+        el.addEventListener("change", async () => {
+          const file = el.files[0];
+          if (!file) return;
+          try {
+            const p = menu.products[Number(el.dataset.image)];
+            p.image = await compressImage(file);
+            el.nextElementSibling.textContent = "Imagen cargada y optimizada.";
+          } catch (e) {
+            setStatus("No pude procesar esa imagen. Prueba con JPG o PNG.");
+          }
+        });
+      });
+    }
+
+    function readAdmin() {
+      menu.restaurant.name = $("editName").value.trim() || "El Bajón de la Casa";
+      menu.restaurant.tagline = $("editTagline").value.trim();
+      menu.restaurant.address = $("editAddress").value.trim();
+      menu.restaurant.phone = $("editPhone").value.trim();
+      menu.restaurant.logo = $("editLogo").value.trim();
+
+      const cats = $("editCategories").value.split("\n").map((s) => s.trim()).filter(Boolean);
+      if (cats.length) menu.categories = cats;
+
+      menu.products.forEach((p) => {
+        if (!menu.categories.includes(p.category)) p.category = menu.categories[0] || "Otros";
+      });
+    }
+
+    function setStatus(s) {
+      $("status").textContent = s;
+    }
+
+    function compressImage(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onerror = reject;
+        reader.onload = () => {
+          const img = new Image();
+          img.onerror = reject;
+          img.onload = () => {
+            const maxW = 1200;
+            const ratio = Math.min(1, maxW / img.width);
+            const canvas = document.createElement("canvas");
+            canvas.width = Math.max(1, Math.round(img.width * ratio));
+            canvas.height = Math.max(1, Math.round(img.height * ratio));
+            const ctx = canvas.getContext("2d");
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            resolve(canvas.toDataURL("image/jpeg", 0.75));
+          };
+          img.src = reader.result;
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    $("search").addEventListener("input", render);
+    $("openAdmin").onclick = () => { fillAdmin(); $("adminDialog").showModal(); };
+    $("closeAdmin").onclick = () => { $("adminDialog").close(); };
+
+    $("addProduct").onclick = () => {
+      readAdmin();
+      menu.products.push({
+        id: "plato-" + Date.now(),
+        name: "Nuevo plato",
+        category: menu.categories[0] || "Otros",
+        description: "",
+        price: 0,
+        image: "",
+        available: true
+      });
+      fillAdmin();
+    };
+
+    $("saveLocal").onclick = () => {
+      readAdmin();
+      try {
+        localStorage.setItem("bajon-menu-draft", JSON.stringify(menu));
+        render();
+        setStatus("Cambios guardados en este navegador.");
+      } catch (e) {
+        setStatus("No se pudieron guardar los cambios localmente.");
+      }
+    };
+
+    $("exportData").onclick = () => {
+      readAdmin();
+      const blob = new Blob([JSON.stringify(menu, null, 2)], { type: "application/json;charset=utf-8" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "menu-data.json";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setStatus("Archivo JSON descargado.");
+    };
+
+    $("importData").onclick = () => $("importFile").click();
+    $("importFile").onchange = async (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      try {
+        menu = normalize(JSON.parse(await file.text()));
+        fillAdmin();
+        render();
+        setStatus("Carta importada correctamente.");
+      } catch (err) {
+        setStatus("El archivo JSON no es válido.");
+      }
+      e.target.value = "";
+    };
+
+    $("resetData").onclick = () => {
+      if (confirm("¿Restablecer la carta inicial? Los cambios locales se perderán.")) {
+        menu = structuredClone(defaultMenu);
+        localStorage.removeItem("bajon-menu-draft");
+        fillAdmin();
+        render();
+        setStatus("Carta reestablecida.");
+      }
+    };
+
+    loadMenu();
+  </script>
 </body>
 </html>

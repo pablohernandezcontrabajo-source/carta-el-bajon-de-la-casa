@@ -1,0 +1,37 @@
+{
+  "restaurant": {
+    "name": "El bajón de la casa",
+    "tagline": "Algo rico para ese bajón",
+    "address": "San Martín 810, Castro, Chiloé",
+    "phone": "",
+    "logo": "",
+    "currency": "CLP"
+  },
+  "categories": [
+    "Destacados",
+    "Sandwiches",
+    "Completos",
+    "Hamburguesas",
+    "Churrascos",
+    "Pizzas",
+    "Papas fritas",
+    "Jugos",
+    "Bebidas",
+    "Otros"
+  ],
+  "products": [
+    {
+      "id": "demo-1",
+      "name": "Producto de ejemplo",
+      "category": "Destacados",
+      "description": "Edita este texto y reemplázalo por un plato real del restaurante.",
+      "price": 0,
+      "image": "",
+      "available": true
+    }
+  ],
+  "settings": {
+    "showPrices": true,
+    "showDescriptions": true
+  }
+}
